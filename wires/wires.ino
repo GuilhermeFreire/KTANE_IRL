@@ -41,7 +41,7 @@ void loop() {
   int voltage_A0 = analogRead(sensor_A0);
   int voltage_A1 = analogRead(sensor_A1);
 
-  // The correct wire to cut is the RED one.
+  // The correct wire to cut is the BLUE one.
   // If the correct wire is cut => light up success LED
   // Otherwise light up the fail LED.
 
