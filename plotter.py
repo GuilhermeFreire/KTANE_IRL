@@ -7,7 +7,15 @@ if len(sys.argv) == 1:
     exit(-1)
 
 with open(sys.argv[1]) as f:
-    data = [int(value) for value in f.read().strip().split("\n")]
+    raw_text = f.read()
+    if "," not in raw_text:
+        data = [int(value) for value in raw_text.strip().split("\n")]
+    else:
+        data = [[int(value) for value in row.split(", ")] for row in raw_text.strip().split("\n")]
 
-plt.plot(data)
+if "," not in raw_text:
+    plt.plot(data)
+else:
+    for wire in zip(*data):
+        plt.plot(wire)
 plt.show()
